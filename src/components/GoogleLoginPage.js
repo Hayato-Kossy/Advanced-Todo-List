@@ -3,8 +3,7 @@ import { getAuth, signInWithPopup, GoogleAuthProvider } from 'firebase/auth';
 import { getFirestore, doc, setDoc } from "firebase/firestore";
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
-import GoogleIcon from '@mui/icons-material/Google';
-import { GitHub, Twitter, Instagram} from '@mui/icons-material';
+import { GitHub, Twitter, Instagram, Google} from '@mui/icons-material';
 import { Stack } from '@mui/material';
 
 function GoogleLoginPage() {
@@ -67,7 +66,7 @@ function GoogleLoginPage() {
               size='large'
               sx={{ textTransform: 'none' }}
             >
-              <GoogleIcon />
+              <Google />
               Login
             </Button>
             <Button 
