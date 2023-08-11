@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react'; 
 import MyCalendar from './Mycalendar';
+import '../navbar.css'
 import 'react-calendar/dist/Calendar.css';
 import '../calendarStyles.css'
 
 import TodoCard from './TodoCard';
 import AddTodoCard from './AddTodoCard';
+import Navbar from './Navbar';
 
 import app from '../firebaseConfig';
 import { getFirestore ,doc, setDoc, deleteDoc, collection, getDocs, query, where } from 'firebase/firestore';
@@ -15,9 +17,10 @@ const TopPage = () => {
     const [date, setDate] = useState((new Date()))
     const [todos, setTodos] = useState([]);
     const user = getAuth().currentUser
+
     function formatDateToLocalISOString(date) {
-        const localISOString = new Date(date.setTime(date.getTime())).toISOString().split('T')[0];
-        console.log(localISOString)
+        const localISOString = new Date(date.setTime(date.getTime() + 1000 * 60 * 60 * 9)).toISOString().split('T')[0];
+        // console.log(new Date())
         return localISOString;
     }
     
@@ -51,15 +54,7 @@ const TopPage = () => {
         const todoDate = new Date(todo.date).toISOString().split('T')[0];
         const selectedDateStr = date.toISOString().split('T')[0];
         return todoDate === selectedDateStr;
-    });
-    const handleLogout = async () => {
-        const auth = getAuth();
-        try {
-            await signOut(auth);
-        } catch (error) {
-            console.error("Error signing out:", error);
-        }
-    };   
+    });   
     useEffect(() => {
         const fetchTodosForCurrentDate = async () => {
                     // YYYY-MM-DDの形式に変換
@@ -80,8 +75,10 @@ const TopPage = () => {
     }, [date, user?.uid]);
     return (
         <div style={{ textAlign: 'center' }}>
-            <h1>Advanced Todo List</h1>
-            <button onClick={handleLogout}>Logout</button>
+            <div>
+                <Navbar>
+                </Navbar>
+            </div>
             <div style={{ display: 'inline-block' }}>
             <MyCalendar setDate={setDate} setTodos={setTodos} /> 
             </div>

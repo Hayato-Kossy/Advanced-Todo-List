@@ -20,6 +20,7 @@ const MyCalendar = ({ setDate, setTodos }) => {
     setValue(localDate);
     setDate(localDate);
     const formattedDate = formatDateToLocalISOString(localDate);
+    console.log(selectedDate)
     // Firebaseからデータを取得
     const todosQuery = query(collection(db, 'users', user.uid, 'todos'), where("date", "==", formattedDate));
     const snapshot = await getDocs(todosQuery);
