@@ -1,0 +1,12 @@
+/* calendarStyles.css */
+
+.react-calendar {
+    width: 700px; /* カレンダーの幅 */
+    height: auto; /* カレンダーの高さを自動に設定 */
+    font-size: 20px; /* テキストのサイズ */
+  }
+  
+  .react-calendar__tile {
+    padding: 15px; /* 各日付のタイルのパディング */
+  }
+  
