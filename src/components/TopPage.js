@@ -10,7 +10,7 @@ import Navbar from './Navbar';
 
 import app from '../firebaseConfig';
 import { getFirestore ,doc, setDoc, deleteDoc, collection, getDocs, query, where } from 'firebase/firestore';
-import { getAuth, signOut } from 'firebase/auth';
+import { getAuth } from 'firebase/auth';
 const db = getFirestore(app); 
 
 const TopPage = () => {

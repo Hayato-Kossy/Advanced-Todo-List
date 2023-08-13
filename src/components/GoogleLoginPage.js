@@ -3,7 +3,7 @@ import { getAuth, signInWithPopup, GoogleAuthProvider } from 'firebase/auth';
 import { getFirestore, doc, setDoc } from "firebase/firestore";
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
-import { GitHub, Twitter, Instagram, Google} from '@mui/icons-material';
+import { GitHub, Twitter, Google} from '@mui/icons-material';
 import { Stack } from '@mui/material';
 
 function GoogleLoginPage() {
